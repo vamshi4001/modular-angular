@@ -1,0 +1,721 @@
+<div class="claims">
+    <ul id="myTab" class="nav nav-tabs" role="tablist">
+      <li class="active">
+        <a href="/#claims" role="tab" data-toggle="tab">
+              <i class="glyphicon glyphicon-inbox"></i>
+              Claims
+        </a>
+      </li>           
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade in active" id="claims">
+        <!-- Claims -->
+        <div class="panel panel-default">
+          <div class="panel-body">
+                
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Reference No.</th>
+                            <th>Procedure</th>
+                            <th>Claimed</th>
+                            <th>Approved</th>
+                            <th>Status</th>
+                            <th class="text-right">DOA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-click="getDetails(9334555)">
+                            <td>Test Claim 9334555</td>
+                            <td>9334555</td>
+                            <td>Test procedure</td>
+                            <td>Rs.123123</td>
+                            <td>Rs.123123</td>
+                            <td>Completed</td>
+                            <td>Aug 12</td>
+                        </tr>
+                        <tr ng-repeat="claim in data.claims" ng-click="openTab(claim.patientName, claim.claimId, $event)">
+                            <td class="name-customer">{{claim.patientName}} ({{claim.conversationCount}})</td>
+                            <td>{{claim.claimId}}</td>
+                            <td>{{claim.procedure}}</td>
+                            <td>Rs. {{formatCurrency(claim.claimedAmount)}}</td>
+                            <td>Rs. {{formatCurrency(claim.approvedAmount)}}</td>
+                            <td><span class="label label-success">{{claim.status}}</span> 
+                                {{claim.statusText}}</td>
+                            <td class="text-right">{{compareDate(claim.dateOfAdmission)}}</td>
+                        </tr>                               
+                    </tbody>
+                </table>
+            </div>
+
+          </div>
+        </div>
+        <!-- /Claims -->
+      </div>
+      <div class="tab-pane fade" id="tab8002800280">
+        <!-- claim details -->
+        <div class="panel panel-default">
+            <div class="panel-body chat">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="claim-info">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td>Customer</td>
+                                    <td><strong>Vamshi</strong></td>
+                                    <td>Reference No.</td>
+                                    <td><strong>8002800280</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Procedure</td>
+                                    <td colspan="3"><strong>Procedure Procedure</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Claimed</td>
+                                    <td><strong>10000 Rs</strong></td>
+                                    <td>Approved</td>
+                                    <td><strong>10000 Rs</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <span class="chat-date">Aug 6</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap">
+                            <h5 class="chat-status">Claim Initiated <span class="chat-user">by Hospital User</span></h5>
+                            <div class="chat-content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum architecto omnis veniam rerum ducimus exercitationem ipsa consectetur quas sequi accusamus officia modi, excepturi aspernatur vitae quia optio! Distinctio, mollitia, quidem.</p>
+                                <div class="chat-docs">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <span class="chat-date">Aug 7</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap">
+                            <h5 class="chat-status">Enhancement <span class="chat-user">by Hospital User</span></h5>
+                            <p class="chat-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum architecto omnis veniam rerum ducimus exercitationem ipsa consectetur quas sequi accusamus officia modi, excepturi aspernatur vitae quia optio! Distinctio, mollitia, quidem.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+
+                <div class="row chat-ma">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap chat-ma">
+                            <h5 class="chat-status text-right">Information Required <span class="chat-user">by Medi Assist</span></h5>
+                            <p class="chat-content clearfix">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum architecto omnis veniam rerum ducimus exercitationem ipsa consectetur quas sequi accusamus officia modi, excepturi aspernatur vitae quia optio! Distinctio, mollitia, quidem.</p>
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        Some attached PDF
+                                    </td>
+                                    <td>
+                                        <a class="fancybox" data-fancybox-type="iframe" href="http://mensenhandel.nl/files/pdftest2.pdf">Test pdf</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Attached Scanned Image
+                                    </td>
+                                    <td>                                        
+                                        <a class="fancybox" data-fancybox-type="iframe" href="http://hearstcommerce.ca/customcontent/members/premium/sample.jpg">Test Image</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        olorum architecto omnis
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs"> Attach Doc </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        olorum architecto omnis
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs"> Attach Doc </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="chat-date">Today</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default">Raise Enhancement</button>
+
+                        <button class="btn btn-default">Submit Final Discharge</button>
+                    </div>
+                    <div class="col-md-2">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /claim details -->
+      </div>
+      <div class="tab-pane fade" id="tab8002800281">
+        <!-- claim details -->
+        <div class="panel panel-default">
+            <div class="panel-body chat">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="claim-info">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td>Customer</td>
+                                    <td><strong>Nirmal</strong></td>
+                                    <td>Reference No.</td>
+                                    <td><strong>8002800280</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Procedure</td>
+                                    <td colspan="3"><strong>Procedure Procedure</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Claimed</td>
+                                    <td><strong>10000 Rs</strong></td>
+                                    <td>Approved</td>
+                                    <td><strong>10000 Rs</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <span class="chat-date">Aug 6</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap">
+                            <h5 class="chat-status">Claim Initiated <span class="chat-user">by Hospital User</span></h5>
+                            <div class="chat-content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum architecto omnis veniam rerum ducimus exercitationem ipsa consectetur quas sequi accusamus officia modi, excepturi aspernatur vitae quia optio! Distinctio, mollitia, quidem.</p>
+                                <div class="chat-docs">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <span class="chat-date">Aug 7</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap">
+                            <h5 class="chat-status">Enhancement <span class="chat-user">by Hospital User</span></h5>
+                            <p class="chat-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum architecto omnis veniam rerum ducimus exercitationem ipsa consectetur quas sequi accusamus officia modi, excepturi aspernatur vitae quia optio! Distinctio, mollitia, quidem.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+
+                <div class="row chat-ma">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap chat-ma">
+                            <h5 class="chat-status text-right">Information Required <span class="chat-user">by Medi Assist</span></h5>
+                            <p class="chat-content clearfix">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum architecto omnis veniam rerum ducimus exercitationem ipsa consectetur quas sequi accusamus officia modi, excepturi aspernatur vitae quia optio! Distinctio, mollitia, quidem.</p>
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        olorum architecto omnis
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs"> Attach Doc </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        olorum architecto omnis
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs"> Attach Doc </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        olorum architecto omnis
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs"> Attach Doc </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="chat-date">Today</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default">Raise Enhancement</button>
+
+                        <button class="btn btn-default">Submit Final Discharge</button>
+                    </div>
+                    <div class="col-md-2">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /claim details -->
+      </div>
+      <div class="tab-pane fade" id="tab8002800282">
+        <!-- claim details -->
+        <div class="panel panel-default">
+            <div class="panel-body chat">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="claim-info">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td>Customer</td>
+                                    <td><strong>Subramanyam</strong></td>
+                                    <td>Reference No.</td>
+                                    <td><strong>8002800280</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Procedure</td>
+                                    <td colspan="3"><strong>Procedure Procedure</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Claimed</td>
+                                    <td><strong>10000 Rs</strong></td>
+                                    <td>Approved</td>
+                                    <td><strong>10000 Rs</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <span class="chat-date">Aug 6</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap">
+                            <h5 class="chat-status">Claim Initiated <span class="chat-user">by Hospital User</span></h5>
+                            <div class="chat-content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum architecto omnis veniam rerum ducimus exercitationem ipsa consectetur quas sequi accusamus officia modi, excepturi aspernatur vitae quia optio! Distinctio, mollitia, quidem.</p>
+                                <div class="chat-docs">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <span class="chat-date">Aug 7</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap">
+                            <h5 class="chat-status">Enhancement <span class="chat-user">by Hospital User</span></h5>
+                            <p class="chat-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum architecto omnis veniam rerum ducimus exercitationem ipsa consectetur quas sequi accusamus officia modi, excepturi aspernatur vitae quia optio! Distinctio, mollitia, quidem.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+
+                <div class="row chat-ma">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap chat-ma">
+                            <h5 class="chat-status text-right">Information Required <span class="chat-user">by Medi Assist</span></h5>
+                            <p class="chat-content clearfix">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum architecto omnis veniam rerum ducimus exercitationem ipsa consectetur quas sequi accusamus officia modi, excepturi aspernatur vitae quia optio! Distinctio, mollitia, quidem.</p>
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        olorum architecto omnis
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs"> Attach Doc </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        olorum architecto omnis
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs"> Attach Doc </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        olorum architecto omnis
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs"> Attach Doc </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="chat-date">Today</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default">Raise Enhancement</button>
+
+                        <button class="btn btn-default">Submit Final Discharge</button>
+                    </div>
+                    <div class="col-md-2">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /claim details -->
+      </div>
+      <div class="tab-pane fade" id="tab8002800283">
+        <!-- claim details -->
+        <div class="panel panel-default">
+            <div class="panel-body chat">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="claim-info">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td>Customer</td>
+                                    <td><strong>Sujana</strong></td>
+                                    <td>Reference No.</td>
+                                    <td><strong>8002800280</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Procedure</td>
+                                    <td colspan="3"><strong>Procedure Procedure</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Claimed</td>
+                                    <td><strong>10000 Rs</strong></td>
+                                    <td>Approved</td>
+                                    <td><strong>10000 Rs</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <span class="chat-date">Aug 6</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap">
+                            <h5 class="chat-status">Claim Initiated <span class="chat-user">by Hospital User</span></h5>
+                            <div class="chat-content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum architecto omnis veniam rerum ducimus exercitationem ipsa consectetur quas sequi accusamus officia modi, excepturi aspernatur vitae quia optio! Distinctio, mollitia, quidem.</p>
+                                <div class="chat-docs">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <span class="chat-date">Aug 7</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap">
+                            <h5 class="chat-status">Enhancement <span class="chat-user">by Hospital User</span></h5>
+                            <p class="chat-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum architecto omnis veniam rerum ducimus exercitationem ipsa consectetur quas sequi accusamus officia modi, excepturi aspernatur vitae quia optio! Distinctio, mollitia, quidem.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+
+                <div class="row chat-ma">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap chat-ma">
+                            <h5 class="chat-status text-right">Information Required <span class="chat-user">by Medi Assist</span></h5>
+                            <p class="chat-content clearfix">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum architecto omnis veniam rerum ducimus exercitationem ipsa consectetur quas sequi accusamus officia modi, excepturi aspernatur vitae quia optio! Distinctio, mollitia, quidem.</p>
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        olorum architecto omnis
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs"> Attach Doc </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        olorum architecto omnis
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs"> Attach Doc </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        olorum architecto omnis
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-xs"> Attach Doc </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="close close-tab"> × </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="chat-date">Today</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default">Raise Enhancement</button>
+
+                        <button class="btn btn-default">Submit Final Discharge</button>
+                    </div>
+                    <div class="col-md-2">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /claim details -->
+      </div>
+      <div class="tab-pane fade" id="tabclaim-new">
+        <!-- new claim -->
+        <div class="panel panel-default">
+            <div class="panel-body chat">
+                <div class="row">
+                    <div class="col-md-2">
+                        <span class="chat-date">Aug 6</span>
+                        <span class="chat-date_time">10.52</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat-content_wrap">
+                            <h5 class="chat-status">Claim Initiating <span class="chat-user">by Hospital User</span></h5>
+                            <hr>
+                            <div class="chat-content">
+                                <!-- user-validate one -->
+                                <div class="user-validate">
+                                    <form role="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Full Name</label>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Date of Birth</label>
+                                                    <input type="date" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">E-mail</label>
+                                                    <input type="email" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Mobile Number</label>
+                                                    <input type="number" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Corporate Name</label>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Employee ID.</label>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="chat-docs">
+                                    <div class="row">
+                                        <div class="col-md-5">Initial pre authorization form</div>
+                                        <div class="col-md-2"><button class="btn btn-primary btn-xs">Attach</button></div>
+                                        <div class="col-md-5">
+                                            <p>Attachment one <button type="button" class="close close-tab pull-right"> × </button></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">ID proof</div>
+                                        <div class="col-md-2"><button class="btn btn-primary btn-xs">Attach</button></div>
+                                        <div class="col-md-5">
+                                            <p>Attachment one <button type="button" class="close close-tab pull-right"> × </button></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">Investigations</div>
+                                        <div class="col-md-2"><button class="btn btn-primary btn-xs">Attach</button></div>
+                                        <div class="col-md-5">
+                                            <p>Attachment one <button type="button" class="close close-tab pull-right"> × </button></p>
+                                            <p>Attachment two <button type="button" class="close close-tab pull-right"> × </button></p>
+                                            <p>Attachment three <button type="button" class="close close-tab pull-right"> × </button></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">Others</div>
+                                        <div class="col-md-2"><button class="btn btn-primary btn-xs">Attach</button></div>
+                                        <div class="col-md-5">
+                                            <p>Attachment one <button type="button" class="close close-tab pull-right"> × </button></p>
+                                            <p>Attachment two <button type="button" class="close close-tab pull-right"> × </button></p>
+                                            <p>Attachment three <button type="button" class="close close-tab pull-right"> × </button></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default">Submit New Admission</button>
+
+                    </div>
+                    <div class="col-md-2">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /new claim -->
+      </div>
+    </div>
+</div>

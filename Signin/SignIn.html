@@ -1,0 +1,163 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>Movie Portal | Login</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <link rel="stylesheet" href="../Shared/styles/main.css">
+  <style>
+    body {
+      padding-top: 0;
+      background: none; }
+    html { 
+      background: #3A3B3D;
+      /*background-color: #967d4f;*/
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+
+      /* IE 
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+      -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')"; */
+    }
+    .header {
+      background-color: #fff;
+      height: 50px;
+    }
+    .header h3 {
+      padding-top: 3px;
+    }
+    .container-fluid {
+      width: 1000px;
+      margin: auto;
+    }
+
+    h2 { 
+      text-transform: uppercase;
+      margin-top: 30%;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 1px #D6DB7E, 2px 2px 1px rgb(177, 189, 6);  }
+    h4 { 
+      color:#fff;
+      font-size: 15px;}
+    h4 span { 
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 17px;}
+
+    form {
+      /*margin-top: 50%;*/
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 3px;
+    }
+    .checkbox { 
+        font-size: 11px;
+        margin-top: 20px; 
+        width: 50%;
+      }
+
+    .footer { 
+      position: absolute;
+      bottom: 0px;
+      background: none;
+      color: #fff;
+      margin-top: 20px;
+      width: 1000px;
+    }
+    .footer a {
+      color: #fff;
+    }
+    .logo{
+      display: block;
+      margin: 0 auto;
+      margin-top: 30%;
+      margin-bottom: 50px; 
+    }
+  </style>
+</head>
+ <body>
+      <div class="row">
+        <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+            <!-- <img src="../Shared/images/logo-mediassist.png" alt="" class="logo"> -->
+          </div>
+          <div class="col-md-4">
+          </div>
+      </div>
+      <div class="row">        
+          <!-- <div class="col-md-7">
+            <h2 class="text-left">Every life that <br>comes to you has a purpose</h2>
+            <h4 class="text-left">We help you to communicate <span>the purpose with satisfaction</span></h4>
+          </div>
+          -->
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+            <div class="alert alert-danger" role="alert" id="loginMessage" style="display:none"></div>
+            <form role="form" class="form">              
+              <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputEmail1" ng-model="user.username" placeholder="Username or Email">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="exampleInputPassword1" ng-model="user.password" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary pull-right" ng-click="signin()">Sign In</button>
+              <div class="checkbox">
+                <!-- <label>
+                  <input type="checkbox"> Remember me
+                </label> -->
+                 <a href="" data-toggle="modal" data-target="#forgotPwd" >Forgot password?</a>
+              </div>
+              <div class="modal fade" id="forgotPwd" tabindex="-1" role="dialog" aria-labelledby="forgotpasswordlabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body" id="forgotpwdbody" ng-show="!esubmitted && !resetFail">
+                    <form action="" role="form">
+                        <div class="form-group">
+                          <label for="">Enter your user id</label>
+                          <input type="text" class="form-control" ng-model="reset.userid">                          
+                        </div>
+                        <button class="btn btn-primary pull-right" ng-click="resetPassword()">Reset password</button>
+                    </form>
+                    <p ng-show="!hospitalsFetched">You will recieve a mail on email id registered.</p>
+                  </div> 
+                  <div class="modal-body" ng-show="esubmitted">
+                      <p>Dear {{userFirstName}},</p>
+                      <br>
+                      <p>Password has been reset for username: {{userName}}. New password is mailed to {{userEmail}}.</p>
+                      <br>
+                      <p>Thank you,</p>
+                      <p>Mediassist Team</p>
+                      <button type="button" data-dismiss="modal" class="btn" ng-click="esubmitted=false">Close</button>
+                  </div>                                 
+                  <div class="modal-body" ng-show="resetFail">
+                      <p>Your request for password reset has failed with following reason.</p> 
+                      <p>{{errorMessage}}</p>
+                      <p>Please try again later.</p>
+                      <button type="button" data-dismiss="modal" class="btn" ng-click="resetFail=false">Close</button>
+                  </div>                                 
+                </div>
+              </div>
+            </div>
+            </form>
+          </div>
+          <div class="col-md-4">
+          </div>
+      </div>
+
+      <div class="row footer">
+        <div class="col-md12 text-center">
+        <p>Best viewed in <a href="http://browsehappy.com">Internet Explorer 10+, Google Chrome, Safari, Mozilla Firefox browsers</a>.</p>
+           
+           <!-- | <a href="http://demo.mahs.in/#about-us" target="_blank">About us</a> | <a href="http://demo.mahs.in/news/" target="_blank">News</a> --> </p> 
+        </div>
+      </div>
+</body>
+</html>
